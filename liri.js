@@ -19,3 +19,6 @@ var search="";
 for (var i = 3;i < process.length; i++) {
     search += process[i] + "+";
 }
+
+console.log(search);
+console.log(data);
