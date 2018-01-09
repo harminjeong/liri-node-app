@@ -67,8 +67,28 @@ function spotify() {
         console.log(songInfo.name);
         console.log(songInfo.preview_url);
         console.log(songInfo.album.name);
-    
-
-
     });
 }
+
+function movie (){
+    if (search === undefined){
+        search = "Free Willy";
+    }
+
+    request("http://www.omdbapi.com/?t=" + search + "&y=&plot=full&tomatoes=true&apikey=trilogy", function (error, response, body){
+
+        if (!error && response.statusCode === 200) {
+            console.log("Movie Title: " + JSON.parse(body).Title);
+            console.log("Release Year: " + JSON.parse(body).Year);
+            console.log("IMDB Rating: " + JSON.parse(body).imdbRating);
+            console.log("Rotten Tomatoes Rating: " + JSON.parse(body).tomatoRating);
+            console.log("Country: " + JSON.parse(body).Country);
+            console.log("Language: " + JSON.parse(body).Language);
+            console.log("Plot: " + JSON.parse(body).Plot);
+            console.log("Actors: " + JSON.parse(body).Actors);
+            
+        }
+
+    })
+}
+
